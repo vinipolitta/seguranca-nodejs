@@ -1,7 +1,12 @@
 const database = require("../models");
 const Sequelize = require("sequelize");
+const Services = require("./Services");
 
-class SegurancaService {
+class SegurancaService extends Services {
+  constructor() {
+    super("usuarios");
+    this.usuarios = new Services("usuarios");
+  }
   async cadastrarAcl(dto) {
     const usuario = await database.usuarios.findOne({
       include: [
