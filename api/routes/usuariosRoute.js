@@ -7,12 +7,13 @@ const router = Router();
 router.use(autenticado);
 
 router
-  .post("/usuarios", UsuarioController.cadastrar)
-  .post("/usuarios/:id/restaura", UsuarioController.restauraPessoa)
-
   .get("/usuarios", UsuarioController.buscarTodosUsuarios)
   .get("/usuarios/id/:id", UsuarioController.buscarUsuarioPorId)
+
+  .post("/usuarios", UsuarioController.cadastrar)
+  .post("/usuarios/:id/restaura", UsuarioController.restauraUsuario)
+
   .put("/usuarios/id/:id", UsuarioController.editarUsuario)
-  .delete("/usuarios/id/:id", UsuarioController.apagaPessoa);
+  .delete("/usuarios/id/:id", UsuarioController.apagaUsuario);
 
 module.exports = router;
