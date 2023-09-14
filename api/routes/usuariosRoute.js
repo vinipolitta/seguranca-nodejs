@@ -1,17 +1,18 @@
-const { Router } = require('express')
-const UsuarioController = require('../controllers/usuarioController')
-const autenticado = require('../middleware/autenticado')
+const { Router } = require("express");
+const UsuarioController = require("../controllers/usuarioController");
+const autenticado = require("../middleware/autenticado");
 
-const router = Router()
+const router = Router();
 
-router.use(autenticado)
+router.use(autenticado);
 
 router
-    .post('/usuarios', UsuarioController.cadastrar)
-    .get('/usuarios', UsuarioController.buscarTodosUsuarios)
-    .get('/usuarios/id/:id', UsuarioController.buscarUsuarioPorId)
-    .put('/usuarios/id/:id', UsuarioController.editarUsuario)
-    .delete('/usuarios/id/:id', UsuarioController.deletarUsuario)
+  .post("/usuarios", UsuarioController.cadastrar)
+  .post("/usuarios/:id/restaura", UsuarioController.restauraPessoa)
 
+  .get("/usuarios", UsuarioController.buscarTodosUsuarios)
+  .get("/usuarios/id/:id", UsuarioController.buscarUsuarioPorId)
+  .put("/usuarios/id/:id", UsuarioController.editarUsuario)
+  .delete("/usuarios/id/:id", UsuarioController.apagaPessoa);
 
-module.exports = router
+module.exports = router;
