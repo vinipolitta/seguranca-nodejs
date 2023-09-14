@@ -19,6 +19,6 @@ module.exports = async (req, res, next) => {
     req.usuarioEmail = email;
     return next();
   } catch (error) {
-    res.statua(401).send("Usuario nao autorizado");
+    res.status(401).send("Usuario nao autorizado");
   }
 };
